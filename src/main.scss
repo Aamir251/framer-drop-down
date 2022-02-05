@@ -1,0 +1,102 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+$color-purple : #270742;
+$color-white : #FFFFFF;
+.relative { position: relative ;}
+.absolute { position: absolute ;}
+
+.toggle-btn {
+  background-color: $color-purple;
+  width: max-content;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  left: 0.4rem;
+  border-radius: 100%;
+}
+svg {
+  #one, #two, #three { transition: all 0.5s ease; }
+
+  &.open {
+    #one {
+      transform: rotateZ(45deg) translate(3px, -1px);
+    }
+    #two { opacity: 0; transform: translateX(100%);}
+    #three {
+      transform: rotateZ(-45deg) translate(-13px, -5px);
+    }
+  }
+}
+
+.menu-items-wrapper {
+  color: $color-white;
+  left: 0;
+  margin-top: 1rem;
+  height : 300px;
+  
+  ul {
+    width : 80px;
+    background: linear-gradient(180deg, rgba(58, 2, 90, 0.7) 0%, rgba(4, 48, 72, 0.371) 100%);
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    transition: all 0.5s ease;
+    padding-top: 2rem;
+    li {
+      cursor: pointer;
+      display: flex;
+      align-items:center;
+      padding: 0.8rem 1rem 0.8rem 1.5rem;
+      width: 100%;
+      transition: background 0.5s ease;
+      span {
+        padding-left: 1.3em;
+      }
+      
+      &.hovered {
+        background : rgba(37, 37, 37, 0.65);
+      }
+      span.hovered {
+        margin-left: 2rem;
+        background-color: #fff;
+        color: #120F2D;
+        width: 100px;
+        text-align: center;
+        padding: 0.5em 1em;
+        border-radius : 22px;
+        font-weight: 500;
+        z-index: 5;
+      }
+    }
+
+    .expand-button {
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.5s ease;
+      cursor: pointer;
+    }
+
+    &.expand {
+      width: 170px;
+      align-items: flex-start;
+
+      .expand-button {
+        transform: translateY(-50%) rotateZ(180deg);
+      }
+    }
+  }
+}
